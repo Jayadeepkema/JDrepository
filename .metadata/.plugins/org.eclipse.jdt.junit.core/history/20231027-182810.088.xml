@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="RegRunner2" project="BDDCucumber" tests="7" started="7" failures="0" errors="0" ignored="0">
+  <testsuite name="runner.RegRunner2" time="11.411">
+    <testsuite name="To validate registration functionality #3" time="11.411">
+      <testsuite name="To validate registration with vaild input data" time="11.411">
+        <testcase name="user starts &quot;chrome&quot; browser" classname="To validate registration with vaild input data" time="1.521"/>
+        <testcase name="user launch app using url &quot;https://adactinhotelapp.com/&quot;" classname="To validate registration with vaild input data" time="3.872"/>
+        <testcase name="user clicks on link using xpath &quot;//a[text()='New User Register Here']&quot;" classname="To validate registration with vaild input data" time="0.758"/>
+        <testcase name="user validate title to be &quot;Adactin.com - New User Registration&quot;" classname="To validate registration with vaild input data" time="0.01"/>
+        <testcase name="use enters details in registration form using headers" classname="To validate registration with vaild input data" time="0.498"/>
+        <testcase name="user clicks on checkbox using xpath &quot;//input[@name='tnc_box']&quot;" classname="To validate registration with vaild input data" time="0.054"/>
+        <testcase name="user clicks on submit using xpath &quot;//input[@name='Submit']&quot;" classname="To validate registration with vaild input data" time="4.698"/>
+      </testsuite>
+    </testsuite>
+  </testsuite>
+</testrun>

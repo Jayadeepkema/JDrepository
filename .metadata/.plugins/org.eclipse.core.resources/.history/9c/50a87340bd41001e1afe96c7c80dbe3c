@@ -1,0 +1,81 @@
+package adactinHotelAppLogin;
+
+import java.time.Duration;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import io.github.bonigarcia.wdm.WebDriverManager;
+
+public class OrangeHRMApplication3 {
+	WebDriver driver;
+	
+
+	public void validatingOHRM() throws InterruptedException {   
+		
+		//WebDriverManager.chromedriver().setup();
+		System.setProperty("webdriver.chrome.driver","C:\\Users\\jayad\\jaideepworkspace\\SeleniumAutomation\\Drivers\\chromedriver.exe");
+		ChromeOptions options = new ChromeOptions();
+		  options.setBinary("C:\\Users\\jayad\\Downloads\\chrome-win64\\chrome-win64\\chrome.exe");
+
+		 // For use with ChromeDriver:
+		 WebDriver driver = new ChromeDriver(options);
+		
+		//WebDriver driver = new ChromeDriver();
+		
+		String ApplicationURL ="https://opensource-demo.orangehrmlive.com/web/index.php/auth/login";
+		
+		driver.get(ApplicationURL);
+		 driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
+		
+		By username = By.xpath("//input[@placeholder='Username']");
+		WebElement usernamebox = driver.findElement(username);
+		usernamebox.sendKeys("Admin");
+		
+		
+		
+		By password = By.xpath("//input[@type='password']");
+		WebElement passwordbox= driver.findElement(password);
+		passwordbox.sendKeys("admin123");
+		
+		
+		
+		By login = By.xpath("//button[@type='submit']");
+		WebElement loginbutton= driver.findElement(login);
+		loginbutton.click();
+		
+		Thread.sleep(3000);
+		
+		
+		//welcome
+		
+		By welcomeHome = By.xpath("//span[@class='oxd-userdropdown-tab']");
+		WebElement welcomeadmin= driver.findElement(welcomeHome);
+		welcomeadmin.click();
+		
+		By logout = By.partialLinkText("Logout");
+		
+          Thread.sleep(3000);
+		WebElement logoutbutton= driver.findElement(logout);
+		logoutbutton.click(	);
+		
+		
+		driver.quit();
+		
+		
+		
+
+	        }
+	
+	public static void main(String[] args) throws InterruptedException {
+		
+		OrangeHRMApplication3  OHRM = new OrangeHRMApplication3();
+		OHRM. validatingOHRM();
+		
+	}
+	}

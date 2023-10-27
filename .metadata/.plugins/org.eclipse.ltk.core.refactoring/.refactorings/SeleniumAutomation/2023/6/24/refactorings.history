@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;SeleniumAutomation/src/newsearch/RoyalOka&apos; to &apos;RoyalOka.java&apos;" description="Rename resource &apos;RoyalOka&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="src/newsearch/RoyalOka" name="RoyalOka.java" stamp="1686467869234" updateReferences="true"/>
+</session>

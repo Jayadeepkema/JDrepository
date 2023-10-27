@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="RegRunner" project="BDDCucumber" tests="6" started="6" failures="0" errors="0" ignored="0">
+  <testsuite name="runner.RegRunner" time="6.286">
+    <testsuite name="To validate login functionality" time="6.286">
+      <testsuite name="To validate login using valid credentials" time="6.286">
+        <testcase name="user starts &quot;chrome&quot; browser" classname="To validate login using valid credentials" time="1.631"/>
+        <testcase name="user launch app using url &quot;https://adactinhotelapp.com/&quot;" classname="To validate login using valid credentials" time="3.388"/>
+        <testcase name="user enters  username &quot;jaydeep99&quot; using xpath &quot;//input[@name='username']&quot;" classname="To validate login using valid credentials" time="0.157"/>
+        <testcase name="user enters  password &quot;jaydeep123&quot; using xpath &quot;//input[@name='password']&quot;" classname="To validate login using valid credentials" time="0.065"/>
+        <testcase name="user click button using xpath &quot;//input[@name='login']&quot;" classname="To validate login using valid credentials" time="1.037"/>
+        <testcase name="user validate title to be &quot;Adactin.com - Search Hotel&quot;" classname="To validate login using valid credentials" time="0.008"/>
+      </testsuite>
+    </testsuite>
+  </testsuite>
+</testrun>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="testNGprogrammes.OrangeHRM" tests="6" started="6" failures="0" errors="0" ignored="0">
+  <testsuite name="testNGprogrammes.OrangeHRM" time="30.985">
+    <testcase name="validatingOHRM" classname="testNGprogrammes.OrangeHRM" time="11.967"/>
+    <testcase name="addemployee" classname="testNGprogrammes.OrangeHRM" time="1.87"/>
+    <testcase name="addemployeedata" classname="testNGprogrammes.OrangeHRM" time="0.882"/>
+    <testcase name="photoUpload" classname="testNGprogrammes.OrangeHRM" time="5.658"/>
+    <testcase name="logoutorangeHRM" classname="testNGprogrammes.OrangeHRM" time="7.271"/>
+    <testcase name="applicationclose" classname="testNGprogrammes.OrangeHRM" time="3.337"/>
+  </testsuite>
+</testrun>

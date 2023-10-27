@@ -1,0 +1,164 @@
+package adactinHotelAppLogin;
+
+
+
+import java.io.FileInputStream;
+
+import java.io.IOException;
+import java.time.Duration;
+import java.util.concurrent.TimeUnit;
+
+import org.apache.poi.xssf.usermodel.XSSFRow;
+import org.apache.poi.xssf.usermodel.XSSFSheet;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+
+
+
+public class OrangeHRMApplication2  {
+	
+	   FileInputStream file;
+	   XSSFWorkbook workbook;
+	  XSSFRow currentRow;
+	  int rowCount;
+      WebDriver driver;
+      String user_name;
+      String pasword;
+      By OHRMUsername;
+      WebElement userid;
+      By OHRMPassword;
+      WebElement userpassword ;
+      By OHRMLogin;
+	  WebElement loginbutton;
+	  String currentURLAfterLogin;
+      
+
+	public void LoginOHRM() throws IOException, InterruptedException
+	{
+	System.setProperty("webdriver.chrome.driver", "C:\\Users\\jayad\\jaideepworkspace\\SeleniumAutomation\\Drivers\\chromedriver.exe");
+	ChromeOptions options= new ChromeOptions();
+	options.setBinary("C:\\Users\\jayad\\Downloads\\chrome-win64\\chrome-win64\\chrome.exe");
+	
+		WebDriver driver = new ChromeDriver(options);
+		
+		String ApplicationUrlAddress = "http://127.0.0.1/orangehrm-4.2.0.1/symfony/web/index.php/auth/login";
+		driver.get(ApplicationUrlAddress);
+	   //driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+	   driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
+	       
+         
+         FileInputStream file =new FileInputStream("C:\\Users\\jayad\\Downloads\\OHRMLogindata.xlsx");
+         XSSFWorkbook workbook = new XSSFWorkbook(file);
+         
+       XSSFSheet sheet =  workbook.getSheet("Sheet1");
+       
+        int rowCount = sheet.getLastRowNum();
+        
+//Loop for Validate TestData from ExcelSheet
+        for(int i = 1;  i<=rowCount; i++)
+        {
+        	
+        
+         XSSFRow currentRow= sheet.getRow(i);
+          
+          String user_name = currentRow.getCell(0).getStringCellValue();  
+          String pasword     = currentRow.getCell(1).getStringCellValue(); 
+
+
+         By OHRMUsername = By.id("txtUsername");
+        WebElement userid = driver.findElement(OHRMUsername);
+        userid. sendKeys(user_name);
+        
+       By OHRMPassword = By.id("txtPassword");
+        WebElement userpassword = driver.findElement(OHRMPassword);
+        userpassword .sendKeys(pasword);
+         
+        By OHRMLogin = By.id("btnLogin");
+		WebElement loginbutton = driver.findElement(OHRMLogin);
+		loginbutton.click();
+		
+	    String currentURLAfterLogin = driver.getCurrentUrl();
+	    System.out.println("currentURL  After Login  Is:-"+currentURLAfterLogin);
+		
+	
+		By Admin= By.id("welcome");
+		WebElement Adminclick = driver.findElement(Admin);
+		Adminclick.click();
+		
+		
+		By OHRMLogout= By.partialLinkText("Logout");
+		WebElement logoutbutton = driver.findElement(OHRMLogout);
+		logoutbutton.click();
+		
+		currentRow.
+		
+		
+		
+		//Loop for  Invalid TestData From ExcelSheet
+		for(int j=2; j<=rowCount; j++)
+		{
+	        
+	          currentRow= sheet.getRow(j);
+	          
+	           user_name = currentRow.getCell(0).getStringCellValue();  
+	           pasword     = currentRow.getCell(1).getStringCellValue(); 
+	           
+
+	            OHRMUsername = By.id("txtUsername");
+	           userid = driver.findElement(OHRMUsername);
+	          userid. sendKeys(user_name);
+	          
+	          OHRMPassword = By.id("txtPassword");
+                userpassword = driver.findElement(OHRMPassword);
+	          userpassword .sendKeys(pasword);
+	           
+	           OHRMLogin = By.id("btnLogin");
+               loginbutton = driver.findElement(OHRMLogin);
+	  		   loginbutton.click();
+	  		   
+	  		  currentURLAfterLogin = driver.getCurrentUrl();
+	 	    System.out.println("currentURL  After Login  Is:-"+currentURLAfterLogin);
+	           
+	          
+          Thread.sleep(3000);
+          
+          driver.findElement(By.id("txtUsername")).sendKeys(Keys.chord(Keys.CONTROL, "a", Keys.DELETE));
+           driver.findElement(By.id("txtPassword")).sendKeys(Keys.chord(Keys.CONTROL, "a", Keys.DELETE));
+          
+        
+        }
+		driver.close();
+		 
+	}
+        
+      
+		workbook.close();
+	
+	}
+	
+	
+	
+	public void OHRMApplicationClose()
+    {
+		driver.quit();
+	}
+	
+	
+
+	public static void main(String[] args) throws IOException, InterruptedException 
+	{
+		
+	
+		OrangeHRMApplication2  Loginwithexceldata =new  OrangeHRMApplication2();
+		Loginwithexceldata . LoginOHRM();
+		Loginwithexceldata.OHRMApplicationClose();
+       
+        
+	}
+
+}
